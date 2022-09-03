@@ -1,0 +1,11 @@
+fixed bullet bug:
+
+each t time, alien bullets shoots a new bullet
+super bullets currently have no specefic function, you can use just them to restore
+
+
+
+
+
+
+
