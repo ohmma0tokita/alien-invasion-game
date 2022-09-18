@@ -13,8 +13,8 @@ pygame.init()
 AI = Settings() # stands for alien invasion
 STATS = Stats(name)
 
-############if not new player salute him##########
-#loads_store_username_score(STATS, name)
+
+check_database(STATS)
 
 # screen
 SCREEN = AI.screen()
@@ -189,16 +189,15 @@ while not run:
 
 game_over = write('Game Over')
 score = write('score: ' + str(STATS.points))
-########## if new record ##########
-congrats_msg = False #loads_store_username_score(STATS, name)
-########## congrats_text = write(congrats_msg)##########
+congrats_msg = check_database(STATS)
+congrats_text = write(congrats_msg)
 
 while run:
     SCREEN.blit(AI.bg_img, (0, 0))
     #prints game over
     SCREEN.blit(game_over, (320, 270))
     #prints score
-    if congrats_msg: # still not working
+    if congrats_msg:
         SCREEN.blit(congrats_text, (250, 400))
     else:
         SCREEN.blit(score, (320, 330))
