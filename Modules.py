@@ -276,25 +276,36 @@ def beginning_story():
         print('\tGame Starting...')
         time.sleep(0.5)
 
-'''
-def loads_store_username_score(STATS, name):
-    """checks for new record, updates players scores and adds new bests"""
-    with open('Alien_Invsion.json', 'a') as file:
-        new_usernames = json.load(usernames)
-        new_scores = json.load(scores)
-        congrats_msg = f'Congrats {name_rec} you set a new record: {record}'
-    if name in new_usernames:
-        time.sleep(0.5)
-        print('\tHello again ' + name.title() + '!')
-        time.sleep(0.5)
-        if STATS.score > new_scores[name]: # if score is better take it
-            new_scores[name] = STATS.score
-        if STATS.score > max(new_scores.values()): # checks new record
-            return congrats_msg
+# database related
+def search(name, data):
+    """search name in database"""
+    for i in range(len(data["players"])):
+        if name in data["players"][i]:
+            return i
     else:
-        new_scores.append({name: STATS.score})
-        if STATS.score > max(new_scores.values()): # checks new record
-            return congrats_msg
-'''
+        return 0
 
+def check_database(STATS):
+    """json manipulation"""
 
+    with open('Alien_Invasion.json', 'r+') as file:
+        data = json.load(file)
+    
+    i = search(STATS.name, data)
+    if i:
+        time.sleep(0.5)
+        print('\tHello again ' + STATS.name.title() + '!')
+        time.sleep(0.5)
+        
+        if data["record"]> STATS.score > data["players"][i][STATS.name]: # if new score is better than old take it
+            data["players"][i][STATS.name] = STATS.score
+            return "u re getting better"
+    
+    else:
+        data["players"].append({STATS.name: STATS.score})
+        file.seek(0)
+        json.dump(data, file, indent = 4)
+    
+    if STATS.score > data["record"]: # checks for new record
+        data["record"] = str(STATS.score)
+        return f'Congrats {STATS.name} you beat the record holder {data["holder"]}: {data["record"]}'
