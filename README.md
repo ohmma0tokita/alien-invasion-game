@@ -1,6 +1,6 @@
 # Alien Invasion Game - Defend Earth from the Extraterrestrial Onslaught 🚀🛸
+![pixel-art-stars-moon-clouds-wallpaper-preview](https://github.com/ohmma0tokita/alien-invasion-game/assets/87244980/628848bb-f33e-4dc5-a854-7dff5d5af69d)
 
-![Gameplay Screenshot](screenshot.png)
 
 Welcome to the Alien Invasion Game! This is a Pygame-based project where players defend Earth from an alien invasion. The game features exciting space battles, power-ups, and challenging levels.
 
