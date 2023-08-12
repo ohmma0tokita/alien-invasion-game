@@ -1,4 +1,7 @@
 # Alien Invasion Game - Defend Earth from the Extraterrestrial Onslaught 🚀🛸
+
+[![GitHub License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![Python Version](https://img.shields.io/badge/python-3.7%2B-blue.svg)](https://www.python.org/downloads/)
 ![pixel-art-stars-moon-clouds-wallpaper-preview](https://github.com/ohmma0tokita/alien-invasion-game/assets/87244980/628848bb-f33e-4dc5-a854-7dff5d5af69d)
 
 
